@@ -1,0 +1,5 @@
+.idea/
+.kdev4/
+*.kdev4
+.vscode/
+venv/
