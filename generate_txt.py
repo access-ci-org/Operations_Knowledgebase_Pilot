@@ -33,24 +33,45 @@ def build_new_dict(soft_database):
 
 def make_txt_doc(soft_database):
     software_database = build_new_dict(soft_database)
-    if os.path.exists("software_by_software.txt"):
-        os.remove("software_by_software.txt")
+    if os.path.exists("software_by_application.txt"):
+        os.remove("software_by_application.txt")
+    print('Software on ACCESS Resource Providers Grouped by Application Name', '\n',
+          file = open('software_by_application.txt', 'a'))
+    # for key in software_database:
+    #     print(key, ': These Resource Providers(clusters) have the ', key, ' software installed: ', sep='', end='',
+    #           file=open('software_by_application.txt', 'a'))
+    #     accumulator = 0
+    #     for value in software_database[key]:
+    #         length = len(software_database[key])
+    #         if accumulator >= length - 1 and length != 1:
+    #             print('and ', end='', file=open('software_by_application.txt', 'a'))
+    #             print(value, end='. ', file=open('software_by_application.txt', 'a'))
+    #         elif accumulator == 0 and length == 2:
+    #             print(value, end=' ', file=open('software_by_application.txt', 'a'))
+    #         elif not accumulator >= length - 1 and length != 1:
+    #             print(value, end=', ', file=open('software_by_application.txt', 'a'))
+    #         else:
+    #             print(value, end='. ', file=open('software_by_application.txt', 'a'))
+    #
+    #         accumulator += 1
+    #     print('\n', end='', file=open('software_by_application.txt', 'a'))
+    #     print('\n', end='', file=open('software_by_application.txt', 'a'))
+
     for key in software_database:
-        print(' These Resource Providers(clusters) have the ', key, ' software installed: ', sep='', end='',
-              file=open('software_by_software.txt', 'a'))
-        accumulator = 0
+        print(key, ': ', sep='', end='', file=open('software_by_application.txt', 'a'))
+        count = 1
         for value in software_database[key]:
             length = len(software_database[key])
-            if accumulator >= length - 1 and length != 1:
-                print('and ', end='', file=open('software_by_software.txt', 'a'))
-                print(value, end='. ', file=open('software_by_software.txt', 'a'))
-            elif accumulator == 0 and length == 2:
-                print(value, end=' ', file=open('software_by_software.txt', 'a'))
-            elif not accumulator >= length - 1 and length != 1:
-                print(value, end=', ', file=open('software_by_software.txt', 'a'))
+            if length == 1:
+                print(value, ' has the ', key, ' software installed.', sep='', end='', file =open('software_by_application.txt', 'a'))
+            elif count == 1 and length ==2:
+                print(value, ' and ', sep='', end='', file=open('software_by_application.txt', 'a'))
+            elif count < length - 1:
+                print(value, ', ', sep='', end='', file=open('software_by_application.txt', 'a'))
+            elif count == length - 1:
+                print(value, ', and ', sep='', end='', file=open('software_by_application.txt', 'a'))
             else:
-                print(value, end='. ', file=open('software_by_software.txt', 'a'))
-
-            accumulator += 1
-        print('\n', end='', file=open('software_by_software.txt', 'a'))
-        print('\n', end='', file=open('software_by_software.txt', 'a'))
+                print(value, ' have the ', key, ' software installed.', sep='', end='', file=open('software_by_application.txt', 'a'))
+            count += 1
+        print('\n', end='', file=open('software_by_application.txt', 'a'))
+        print('\n', end='', file=open('software_by_application.txt', 'a'))
