@@ -35,7 +35,7 @@ def make_txt_doc(soft_database):
     software_database = build_new_dict(soft_database)
     if os.path.exists("software_by_application.txt"):
         os.remove("software_by_application.txt")
-    print('Software on ACCESS Resource Providers Grouped by Application Name', '\n',
+    print('Software on ACCESS Centers Grouped by Application Name', '\n',
           file = open('software_by_application.txt', 'a'))
     # for key in software_database:
     #     print(key, ': These Resource Providers(clusters) have the ', key, ' software installed: ', sep='', end='',
@@ -58,16 +58,16 @@ def make_txt_doc(soft_database):
     #     print('\n', end='', file=open('software_by_application.txt', 'a'))
 
     for key in software_database:
-        print(key, ': ', sep='', end='', file=open('software_by_application.txt', 'a'))
+        # print(key, ': ', sep='', end='', file=open('software_by_application.txt', 'a'))
         count = 1
         for value in software_database[key]:
             length = len(software_database[key])
             if length == 1:
-                print(value, ' has the ', key, ' software installed.', sep='', end='', file =open('software_by_application.txt', 'a'))
+                print('The center ', value, ' has the ', key, ' software installed.', sep='', end='', file =open('software_by_application.txt', 'a'))
             elif count == 1 and length ==2:
-                print(value, ' and ', sep='', end='', file=open('software_by_application.txt', 'a'))
+                print('The centers ', value, ' and ', sep='', end='', file=open('software_by_application.txt', 'a'))
             elif count < length - 1:
-                print(value, ', ', sep='', end='', file=open('software_by_application.txt', 'a'))
+                print('The centers ', value, ', ', sep='', end='', file=open('software_by_application.txt', 'a'))
             elif count == length - 1:
                 print(value, ', and ', sep='', end='', file=open('software_by_application.txt', 'a'))
             else:
