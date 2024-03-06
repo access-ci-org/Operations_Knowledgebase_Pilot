@@ -1,0 +1,9 @@
+2024-03-05  Megan Oelgoetz
+- beta release of working project
+
+2024-03-06  Megan Oelgoetz
+- added .txt to .gitignore
+- reformatted generate_txt.py
+- added LICENSE
+- added NOTICE
+- added CHANGELOG
