@@ -66,8 +66,10 @@ def make_txt_doc(soft_database):
                 print('The center ', value, ' has the ', key, ' software installed.', sep='', end='', file =open('software_by_application.txt', 'a'))
             elif count == 1 and length ==2:
                 print('The centers ', value, ' and ', sep='', end='', file=open('software_by_application.txt', 'a'))
-            elif count < length - 1:
+            elif count == 1:
                 print('The centers ', value, ', ', sep='', end='', file=open('software_by_application.txt', 'a'))
+            elif count < length - 1:
+                print(value, ', ', sep='', end='', file=open('software_by_application.txt', 'a'))
             elif count == length - 1:
                 print(value, ', and ', sep='', end='', file=open('software_by_application.txt', 'a'))
             else:
